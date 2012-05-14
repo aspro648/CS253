@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if posts %}
+      {% for post in posts %}
+        {{ post.render() | safe }}
+        <br><br>
+      {% endfor %}
+    {% endif %}
+
+{% endblock %}

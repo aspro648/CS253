@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/blog.css" />
+  <title>Ken's World</title>
+</head>
+
+<body>
+
+  <div class="login-area">
+    
+      <a class="login-link" href="/blog/login">login</a>
+      |
+      <a class="login-link" href="/blog/signup">signup</a>
+      |
+      <a class="login-link" href="/blog/logout">logout</a>
+  </div><br>
+  <div>
+    <a href="/" class="main-title">
+      Ken's Udacity CS253 Homework
+    </a>
+  </div>
+  <div class="message">
+    {% if message %}
+    {{ message }}
+     
+    {% endif %}
+  </div>
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+
+</html>

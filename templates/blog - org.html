@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>/Ken's World/</title>
+    <link type="text/css" rel="stylesheet" href="/static/blog.css" />
+  </head>
+  
+  <body>
+    <a href="/blog" class="main-title">
+      Ken's World
+    </a>
+ 
+    <div class="login-area">
+      <a class="login-link" href="/blog/newpost">new post</a>
+      |    
+      <a class="login-link" href="/login">login</a>
+      |
+      <a class="login-link" href="/signup">signup</a>
+      |
+      <a class="login-link" href="/logout">logout</a>
+    </div>
+    <!--{% print "blogEntries: ", blogEntries %}-->
+
+    <div id="content">
+
+        {% if post %}
+            <div class="post">
+              <div class="post-heading">
+                <div class="post-title">{{post.subject}}</div>
+                <div class="post-date">{{post.date}}</div>
+              </div>
+              <div class="post-content">
+                {{post.content}}<br><br>
+              </div>
+            </div>
+        {% endif %}
+
+
+        {% if blogEntries %}
+          {% for post in blogEntries %}
+            <div class="post">
+              <div class="post-heading">
+                <div class="post-title"><a href="/blog/{{post.key().id()}}">{{post.subject}}</a></div>
+                <div class="post-date">{{post.date}}</div>
+              </div>
+              <div class="post-content">
+                {{post.content}}<br><br>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+   
+    </div>
+    
+    
+  </body>
+</html>

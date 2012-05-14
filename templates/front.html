@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>/ascii/</h1>
+    
+    <table><tr><td valign="top">
+        <form method="post">
+          <label>
+            <div>title</div>
+            <input type="text" name="title" value={{title}}>
+          </label>
+          <label>
+            <div>art</div>
+            <textarea name="art">{{art}}</textarea>
+          </label>
+          
+          <div class="error">{{error}}</div>
+          
+          <input type="submit">
+        </form>
+      </td>
+      <td valign="top">
+   
+        {% if img_url %}
+            <b>Submission locations:<b>
+            <img class="m" src="{{img_url}}">
+        {% endif %}    
+      </td></tr>
+    </table>
+    
+    <hr>
+   
+    {% for art in arts %}
+      <div class="art">
+        <div class="art-title">{{art.title}}</div>
+        <pre class="art-body">{{art.art}}</pre><!-- preformatted -->
+      </div>
+    {% endfor %}
+    
+{% endblock %}

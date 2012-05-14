@@ -1,0 +1,11 @@
+{% if post %}
+    <div class="post">
+      <div class="post-heading">
+        <div class="post-title"><a href="/blog/{{post.key().id()}}">{{post.subject}}</a></div>
+        <div class="post-date">{{post.created.strftime("%b %d, %Y")}}</div>
+      </div>
+      <div class="post-content">
+        {{post._render_text | safe}}<br><br>
+      </div>
+    </div>
+{% endif %}
